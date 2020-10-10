@@ -22,14 +22,14 @@ import static com.vnb.RestaurantVote.utils.RestaurantUtil.createWithVote;
 
 @RestController
 @RequestMapping("restaurants")
-public class RestaurantRestController {
+public class RestaurantController {
 
-    private static Logger log = LoggerFactory.getLogger(RestaurantRestController.class);
+    private static Logger log = LoggerFactory.getLogger(RestaurantController.class);
 
     private final RestaurantService restaurantService;
 
     @Autowired
-    public RestaurantRestController(RestaurantService restaurantService) {
+    public RestaurantController(RestaurantService restaurantService) {
         this.restaurantService = restaurantService;
     }
 

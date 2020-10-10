@@ -18,14 +18,14 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/users/profile")
-public class UserRestController {
+public class UserController {
 
-    private static Logger log = LoggerFactory.getLogger(UserRestController.class);
+    private static Logger log = LoggerFactory.getLogger(UserController.class);
 
     private final UserService userService;
 
     @Autowired
-    public UserRestController(UserService userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
