@@ -6,8 +6,8 @@ ALTER SEQUENCE USER_SEQ RESTART WITH 100000;
 
 INSERT INTO users (email, password) VALUES
 ('admin@gmail.com', 'admin'),
-('user@gmail.com', '123'),
-('user@yandex.ru', '123');
+('user@mail.com', '1234'),
+('user@yandex.ru', '1234');
 
 INSERT INTO user_roles (role, user_id) VALUES
 ('ROLE_USER', 100000),

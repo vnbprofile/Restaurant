@@ -35,19 +35,19 @@ public class RestaurantController {
 
     @GetMapping
     public List<RestaurantTo> getAll() {
-        log.info("LOG список кафе получен");
+        log.info("LOG список ресторанов получен");
         return RestaurantUtil.getRestaurantWithVotes(restaurantService.getAll());
     }
 
     @GetMapping("{id}")
     public RestaurantTo get(@PathVariable("id") int id) {
-        log.info("LOG кафе с id: {} найдено", id);
+        log.info("LOG ресторанов с id: {} найдено", id);
         return createWithVote(restaurantService.getById(id));
     }
 
     @GetMapping("meals/{id}")
     public List<Meal> getMeals(@PathVariable("id") int id) {
-        log.info("LOG меню кафе с id: {} найдено", id);
+        log.info("LOG меню ресторанов с id: {} найдено", id);
         return restaurantService.getMeals(id);
     }
 
