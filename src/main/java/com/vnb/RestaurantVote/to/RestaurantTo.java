@@ -12,7 +12,7 @@ public class RestaurantTo {
     private String name;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate createdDate;
+  //  private LocalDate createdDate;
     private Integer votes;
 
     public RestaurantTo() {
@@ -21,14 +21,14 @@ public class RestaurantTo {
     public RestaurantTo(Restaurant restaurant, Integer votes) {
         this.id = restaurant.getId();
         this.name = restaurant.getName();
-        this.createdDate = restaurant.getCreatedDate();
+     //   this.createdDate = restaurant.getCreatedDate();
         this.votes = votes;
     }
 
     public RestaurantTo(Integer id, String name, LocalDate createdDate, Integer votes) {
         this.id = id;
         this.name = name;
-        this.createdDate = createdDate;
+     //   this.createdDate = createdDate;
         this.votes = votes;
     }
 
@@ -40,9 +40,9 @@ public class RestaurantTo {
         return name;
     }
 
-    public LocalDate getCreatedDate() {
-        return createdDate;
-    }
+//    public LocalDate getCreatedDate() {
+//        return createdDate;
+//    }
 
     public Integer getVotes() {
         return votes;
@@ -53,7 +53,7 @@ public class RestaurantTo {
         return "RestaurantTo{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", createdDate=" + createdDate +
+              //  ", createdDate=" + createdDate +
                 ", votes=" + votes +
                 "}";
     }
@@ -66,12 +66,12 @@ public class RestaurantTo {
         RestaurantTo restaurantTo = (RestaurantTo) o;
         return Objects.equals(id, restaurantTo.id) &&
                 Objects.equals(name, restaurantTo.name) &&
-                Objects.equals(createdDate, restaurantTo.createdDate) &&
+             //   Objects.equals(createdDate, restaurantTo.createdDate) &&
                 Objects.equals(votes, restaurantTo.votes);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, createdDate, votes);
+        return Objects.hash(id, name, /*createdDate, */ votes);
     }
 }

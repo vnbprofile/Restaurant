@@ -18,11 +18,11 @@ import java.util.Set;
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Restaurant {
 
-    public static final int RESTAURANT_START_SEQ = 1;
+   // public static final int RESTAURANT_START_SEQ = 1;
 
     @Id
-    @SequenceGenerator(name = "RESTAURANT_START_SEQ", sequenceName = "RESTAURANT_START_SEQ", allocationSize = 1, initialValue = RESTAURANT_START_SEQ)
-    @GeneratedValue(generator = "RESTAURANT_START_SEQ", strategy = GenerationType.SEQUENCE)
+   // @SequenceGenerator(name = "RESTAURANT_START_SEQ", sequenceName = "RESTAURANT_START_SEQ", allocationSize = 1, initialValue = RESTAURANT_START_SEQ)
+    //@GeneratedValue(generator = "RESTAURANT_START_SEQ", strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     @NotBlank
@@ -105,7 +105,7 @@ public class Restaurant {
 
     @Override
     public String toString() {
-        return "Cafe{" +
+        return "Restaurant{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", createdDate=" + createdDate +

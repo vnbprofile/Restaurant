@@ -31,6 +31,7 @@ CREATE TABLE MEALS
     name             VARCHAR(255)            NOT NULL,
     price            DOUBLE                  NOT NULL,
     restaurant_id    INTEGER                 NOT NULL,
+    date             DATE DEFAULT now()      NOT NULL,
     FOREIGN KEY (restaurant_id) REFERENCES restaurants (id) ON DELETE CASCADE
 );
 
@@ -38,6 +39,7 @@ CREATE TABLE restaurant_votes
 (
     restaurant_id         INTEGER               NOT NULL REFERENCES restaurants (id),
     user_id               INTEGER               NOT NULL REFERENCES users (id),
+    date                  TIMESTAMP DEFAULT now() NOT NULL,
     PRIMARY KEY (restaurant_id, user_id)
 );
 
