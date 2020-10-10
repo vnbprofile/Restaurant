@@ -22,15 +22,15 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/admin")
-public class AdminRestController {
+public class AdminController {
 
-    private static Logger log = LoggerFactory.getLogger(AdminRestController.class);
+    private static Logger log = LoggerFactory.getLogger(AdminController.class);
 
     private final RestaurantService restaurantService;
     private final UserService userService;
 
     @Autowired
-    public AdminRestController(RestaurantService restaurantService, UserService userService) {
+    public AdminController(RestaurantService restaurantService, UserService userService) {
         this.restaurantService = restaurantService;
         this.userService = userService;
     }

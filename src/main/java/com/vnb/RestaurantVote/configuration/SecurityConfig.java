@@ -15,11 +15,11 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     //для данных из бд
-    private final MyUserDetailsService myUserDetailsService;
+    private final VoteUserDetailsService voteUserDetailsService;
 
     @Autowired
-    public SecurityConfig(MyUserDetailsService myUserDetailsService) {
-        this.myUserDetailsService = myUserDetailsService;
+    public SecurityConfig(VoteUserDetailsService voteUserDetailsService) {
+        this.voteUserDetailsService = voteUserDetailsService;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //для связи юзеров из бд, пароли оставил незашифрованными
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(myUserDetailsService)
+        auth.userDetailsService(voteUserDetailsService)
                             .passwordEncoder(NoOpPasswordEncoder.getInstance());
 
     }
