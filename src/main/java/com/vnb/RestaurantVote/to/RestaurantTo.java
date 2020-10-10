@@ -50,7 +50,7 @@ public class RestaurantTo {
 
     @Override
     public String toString() {
-        return "CafeTo{" +
+        return "RestaurantTo{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", createdDate=" + createdDate +
