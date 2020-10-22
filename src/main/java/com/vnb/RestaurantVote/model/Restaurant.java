@@ -43,23 +43,23 @@ public class Restaurant {
 
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "meals", joinColumns = @JoinColumn(name = "restaurant_id"))
-    private List<Meal> meals = new ArrayList<>();
+    private List<RestoranMeal> restoranMeals = new ArrayList<>();
 
     public Restaurant() {
     }
 
-    public Restaurant(Integer id, String name, LocalDate createdDate, List<Meal> meals) {
+    public Restaurant(Integer id, String name, LocalDate createdDate, List<RestoranMeal> restoranMeals) {
         this.id = id;
         this.name = name;
         this.createdDate = createdDate;
-        this.meals = meals;
+        this.restoranMeals = restoranMeals;
     }
 
-    public Restaurant(Integer id, String name, LocalDate createdDate, List<Meal> meals, Set<User> votes) {
+    public Restaurant(Integer id, String name, LocalDate createdDate,List<RestoranMeal> restoranMeals, Set<User> votes) {
         this.id = id;
         this.name = name;
         this.createdDate = createdDate;
-        this.meals = meals;
+        this.restoranMeals = restoranMeals;
         this.votes = votes;
     }
 
@@ -95,12 +95,12 @@ public class Restaurant {
 //        this.votes = votes;
 //    }
 
-    public List<Meal> getMeals() {
-        return meals;
+    public List<RestoranMeal>  getRestoranMeals() {
+        return restoranMeals;
     }
 
-    public void setMeals(List<Meal> meals) {
-        this.meals = meals;
+    public void setMeals(List<RestoranMeal> restoranMeals) {
+        this.restoranMeals = restoranMeals;
     }
 
     @Override
@@ -109,7 +109,7 @@ public class Restaurant {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", createdDate=" + createdDate +
-                ", meals=" + meals +
+                ", meals=" + restoranMeals +
                 '}';
     }
 }

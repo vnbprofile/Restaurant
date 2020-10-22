@@ -4,10 +4,12 @@ DROP TABLE restaurants IF EXISTS;
 DROP TABLE restaurant_votes IF EXISTS;
 DROP TABLE meals IF EXISTS;
 DROP SEQUENCE USER_SEQ IF EXISTS;
+DROP SEQUENCE MEAL_SEQ IF EXISTS;
 DROP SEQUENCE RESTAURANT_START_SEQ IF EXISTS;
 
 CREATE SEQUENCE USER_SEQ START WITH 100000;
 CREATE SEQUENCE RESTAURANT_START_SEQ START WITH 100000;
+CREATE SEQUENCE MEAL_SEQ START WITH 100000;
 
 CREATE TABLE users
 (
@@ -26,10 +28,11 @@ CREATE TABLE restaurants
     date             TIMESTAMP DEFAULT now() NOT NULL
 );
 
-CREATE TABLE MEALS
+CREATE TABLE meals
 (
+    id               INTEGER DEFAULT MEAL_SEQ.nextval PRIMARY KEY,
     name             VARCHAR(255)            NOT NULL,
-    price            DOUBLE                  NOT NULL,
+    price            INTEGER                  NOT NULL,
     restaurant_id    INTEGER                 NOT NULL,
     date             DATE DEFAULT now()      NOT NULL,
     FOREIGN KEY (restaurant_id) REFERENCES restaurants (id) ON DELETE CASCADE

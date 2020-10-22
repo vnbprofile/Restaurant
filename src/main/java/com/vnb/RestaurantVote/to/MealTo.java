@@ -1,7 +1,7 @@
 package com.vnb.RestaurantVote.to;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.vnb.RestaurantVote.model.Meal;
+import com.vnb.RestaurantVote.model.Meals;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -18,7 +18,7 @@ public class MealTo {
     public MealTo() {
     }
 
-    public MealTo(Meal meal, Integer votes) {
+    public MealTo(Meals meal, Integer votes) {
         this.id = meal.getId();
         this.name = meal.getName();
         this.createdDate = meal.getCreatedDate();

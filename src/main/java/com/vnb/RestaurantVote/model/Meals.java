@@ -5,14 +5,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
 @Table(name = "meals")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-public class Meal {
+public class Meals {
 
     @NotBlank
     @Column(name = "name", nullable = false)
@@ -20,7 +19,7 @@ public class Meal {
 
     @NotBlank
     @Column(name = "price", nullable = false)
-    private Double price;
+    private Integer price;
     @Id
     private Integer id;
 
@@ -28,15 +27,15 @@ public class Meal {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate createdDate;
 
-    public Meal() {
+    public Meals() {
     }
 
-    public Meal(String name, Double price) {
+    public Meals(String name, Integer price) {
         this.name = name;
         this.price = price;
     }
 
-    public Meal(Integer id,String name, Double price) {
+    public Meals(Integer id, String name, Integer price) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -54,7 +53,7 @@ public class Meal {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
@@ -83,8 +82,8 @@ public class Meal {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Meal)) return false;
-        Meal meal = (Meal) o;
+        if (!(o instanceof Meals)) return false;
+        Meals meal = (Meals) o;
         return name.equals(meal.name) &&
                 price.equals(meal.price);
     }

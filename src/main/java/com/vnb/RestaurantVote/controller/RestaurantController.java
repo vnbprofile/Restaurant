@@ -1,7 +1,8 @@
 package com.vnb.RestaurantVote.controller;
 
-import com.vnb.RestaurantVote.model.Meal;
+import com.vnb.RestaurantVote.model.Meals;
 import com.vnb.RestaurantVote.model.Restaurant;
+import com.vnb.RestaurantVote.model.RestoranMeal;
 import com.vnb.RestaurantVote.model.User;
 import com.vnb.RestaurantVote.service.RestaurantService;
 import com.vnb.RestaurantVote.to.RestaurantTo;
@@ -46,9 +47,9 @@ public class RestaurantController {
     }
 
     @GetMapping("meals/{id}")
-    public List<Meal> getMeals(@PathVariable("id") int id) {
+    public List<RestoranMeal> getMeals(@PathVariable("id") int id) {
         log.info("LOG меню ресторанов с id: {} найдено", id);
-        return restaurantService.getMeals(id);
+        return restaurantService.getRestoranMeal(id);
     }
 
     @GetMapping("vote/{id}")

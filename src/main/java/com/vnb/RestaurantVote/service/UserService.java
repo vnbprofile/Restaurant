@@ -61,6 +61,8 @@ public class UserService implements UserDetailsService {
         return userRepository.findByEmail(email);
     }
 
+
+
     private User find(int id) {
         return userRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Not found"));
     }
