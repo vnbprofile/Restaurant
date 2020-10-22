@@ -1,6 +1,5 @@
 package com.vnb.RestaurantVote.service;
 
-import com.vnb.RestaurantVote.model.Meals;
 import com.vnb.RestaurantVote.model.Restaurant;
 import com.vnb.RestaurantVote.model.RestoranMeal;
 import com.vnb.RestaurantVote.model.User;

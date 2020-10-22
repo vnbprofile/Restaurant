@@ -18,7 +18,7 @@ import java.util.Set;
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Restaurant {
 
-   // public static final int RESTAURANT_START_SEQ = 1;
+    public static final int RESTAURANT_START_SEQ = 100000;
 
     @Id
    // @SequenceGenerator(name = "RESTAURANT_START_SEQ", sequenceName = "RESTAURANT_START_SEQ", allocationSize = 1, initialValue = RESTAURANT_START_SEQ)
@@ -99,7 +99,7 @@ public class Restaurant {
         return restoranMeals;
     }
 
-    public void setMeals(List<RestoranMeal> restoranMeals) {
+    public void setRestoranMeal(List<RestoranMeal> restoranMeals) {
         this.restoranMeals = restoranMeals;
     }
 

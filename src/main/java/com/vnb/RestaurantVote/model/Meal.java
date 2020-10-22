@@ -11,7 +11,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "meals")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-public class Meals {
+public class Meal {
 
     @NotBlank
     @Column(name = "name", nullable = false)
@@ -27,15 +27,15 @@ public class Meals {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate createdDate;
 
-    public Meals() {
+    public Meal() {
     }
 
-    public Meals(String name, Integer price) {
+    public Meal(String name, Integer price) {
         this.name = name;
         this.price = price;
     }
 
-    public Meals(Integer id, String name, Integer price) {
+    public Meal(Integer id, String name, Integer price) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -82,8 +82,8 @@ public class Meals {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Meals)) return false;
-        Meals meal = (Meals) o;
+        if (!(o instanceof Meal)) return false;
+        Meal meal = (Meal) o;
         return name.equals(meal.name) &&
                 price.equals(meal.price);
     }

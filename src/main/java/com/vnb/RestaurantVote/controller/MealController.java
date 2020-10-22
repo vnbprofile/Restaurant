@@ -1,6 +1,6 @@
 package com.vnb.RestaurantVote.controller;
 
-import com.vnb.RestaurantVote.model.Meals;
+import com.vnb.RestaurantVote.model.Meal;
 import com.vnb.RestaurantVote.service.MealService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,22 +29,22 @@ public class MealController {
     }
 
     @GetMapping
-    public List<Meals> getAll() {
+    public List<Meal> getAll() {
         log.info("LOG список ,блюд получен");
         return mealService.getAll();
     }
 
     @GetMapping("{id}")
-    public Meals get(@PathVariable("id") int id) {
+    public Meal get(@PathVariable("id") int id) {
         log.info("LOG блюд с id: {} найдено", id);
         return mealService.getById(id);
     }
 
     @GetMapping("/filter")
-    public List<Meals> getBetween(@RequestParam(name = "startDate", required = false)
+    public List<Meal> getBetween(@RequestParam(name = "startDate", required = false)
                                    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
                                    LocalDate start,
-                                  @RequestParam(name = "endDate", required = false)
+                                 @RequestParam(name = "endDate", required = false)
                                    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
                                    LocalDate end) {
 

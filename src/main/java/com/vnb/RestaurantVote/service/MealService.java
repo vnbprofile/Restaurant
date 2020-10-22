@@ -1,6 +1,6 @@
 package com.vnb.RestaurantVote.service;
 
-import com.vnb.RestaurantVote.model.Meals;
+import com.vnb.RestaurantVote.model.Meal;
 import com.vnb.RestaurantVote.repository.MealRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,34 +21,34 @@ public class MealService {
         this.mealRepository = mealRepository;
     }
 
-    public List<Meals> getAll() {
+    public List<Meal> getAll() {
         return mealRepository.findAll();
     }
 
-    public Meals getById(int id) {
+    public Meal getById(int id) {
         return find(id);
     }
 
 
-    public Meals save(Meals meal) {
+    public Meal save(Meal meal) {
         return mealRepository.save(meal);
     }
 
-    public void update(Meals meal) {
+    public void update(Meal meal) {
         mealRepository.save(meal);
     }
 
     public void delete(int id) {
-        Meals meal = find(id);
+        Meal meal = find(id);
         mealRepository.delete(meal);
     }
 
 
-    public List<Meals> getByDateOrBetweenDateTimes(@Nullable LocalDate startDateTime, @Nullable LocalDate endDateTime) {
+    public List<Meal> getByDateOrBetweenDateTimes(@Nullable LocalDate startDateTime, @Nullable LocalDate endDateTime) {
         return mealRepository.getMealByCreatedDateBetween(startDateTime, endDateTime);
     }
 
-    private Meals find(int id) {
+    private Meal find(int id) {
         return mealRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Not found"));
     }
 }
