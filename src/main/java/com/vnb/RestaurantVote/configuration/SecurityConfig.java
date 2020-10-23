@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    //для данных из бд
+
     private final UserDetail userDetail;
 
     @Autowired
@@ -26,8 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.httpBasic().and()
                     .authorizeRequests()
-                    .antMatchers("/**/admin/**").hasRole("ADMIN")
-                    .antMatchers("/users/profile/register").anonymous()
+                    .antMatchers("/admin/**").hasRole("ADMIN")
+                    .antMatchers("/users/profile/register").permitAll()
                     .anyRequest().authenticated()
                 .and().csrf().disable();
 
@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-    //для связи юзеров из бд, пароли оставил незашифрованными
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetail)

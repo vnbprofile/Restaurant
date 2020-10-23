@@ -1,17 +1,17 @@
-package com.vnb.RestaurantVote;
+package com.vnb.RestaurantVote.controller.Restaurant;
 
 
 import com.vnb.RestaurantVote.model.Meal;
 import com.vnb.RestaurantVote.model.Restaurant;
-import com.vnb.RestaurantVote.model.RestoranMeal;
+import com.vnb.RestaurantVote.model.RestaurantMeal;
 import com.vnb.RestaurantVote.to.RestaurantTo;
 import org.springframework.test.web.servlet.ResultMatcher;
 
 import java.time.LocalDate;
 import java.util.List;
 
-import static com.vnb.RestaurantVote.TestUtil.readListFromJsonMvcResult;
-import static com.vnb.RestaurantVote.UserTestData.VOTES;
+import static com.vnb.RestaurantVote.utils.TestUtil.readListFromJsonMvcResult;
+import static com.vnb.RestaurantVote.controller.user.UserTestData.VOTES;
 import static com.vnb.RestaurantVote.model.Restaurant.RESTAURANT_START_SEQ;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,13 +21,13 @@ public class RestoranMealTestData {
     public static final int RESTAURANT_FOR_VOTE = RESTAURANT_START_SEQ + 7;
     public static final int RESTAURANT_FILTERED = RESTAURANT_START_SEQ + 5;
 
-    public static final RestoranMeal MEAL1 = new RestoranMeal("Пирожок", 15);
-    public static final RestoranMeal MEAL2 = new RestoranMeal("Чебурек", 30);
+    public static final RestaurantMeal MEAL1 = new RestaurantMeal("Пирожок", 15);
+    public static final RestaurantMeal MEAL2 = new RestaurantMeal("Чебурек", 30);
 
-    public static final List<RestoranMeal> MEALS = List.of(MEAL1, MEAL2);
+    public static final List<RestaurantMeal> MEALS = List.of(MEAL1, MEAL2);
 
-    public static final Restaurant RESTAURANT_TO_TEST_1 = new Restaurant(1, "Restaurant 464", LocalDate.of(2019, 12, 12), List.of(new RestoranMeal("Tost", 55)));
-    public static final Restaurant RESTAURANT_TO_TEST_2 = new Restaurant(2, "Zakusochnaay", LocalDate.of(2019, 12, 12), List.of(new RestoranMeal("Ceg", 90)));
+    public static final Restaurant RESTAURANT_TO_TEST_1 = new Restaurant(1, "Restaurant 464", LocalDate.of(2019, 12, 12), List.of(new RestaurantMeal("Tost", 55)));
+    public static final Restaurant RESTAURANT_TO_TEST_2 = new Restaurant(2, "Zakusochnaay", LocalDate.of(2019, 12, 12), List.of(new RestaurantMeal("Ceg", 90)));
     public static final List<Restaurant> RESTAURANTS_TO_TESTS = List.of(RESTAURANT_TO_TEST_1, RESTAURANT_TO_TEST_2);
 
     public static Restaurant getCreated() {
@@ -62,7 +62,7 @@ public class RestoranMealTestData {
         return result -> assertThat(readListFromJsonMvcResult(result, RestaurantTo.class)).isEqualTo(expected);
     }
 
-    public static ResultMatcher contentJson(List<RestoranMeal> expected) {
+    public static ResultMatcher contentJson(List<RestaurantMeal> expected) {
         return result -> assertThat(readListFromJsonMvcResult(result, Meal.class)).isEqualTo(expected);
     }
 }

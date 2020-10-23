@@ -3,6 +3,8 @@ DELETE FROM restaurants;
 DELETE FROM users;
 DELETE FROM restaurant_votes;
 ALTER SEQUENCE USER_SEQ RESTART WITH 100000;
+ ALTER SEQUENCE RESTAURANT_START_SEQ RESTART WITH 100000;
+ ALTER SEQUENCE MEAL_SEQ RESTART WITH 100000;
 
 INSERT INTO users (email, password) VALUES
 ('admin@gmail.com', 'admin'),
@@ -16,12 +18,12 @@ INSERT INTO user_roles (role, user_id) VALUES
 ('ROLE_USER', 100002);
 
 INSERT INTO restaurants (name, date) VALUES
-('Диканька', '2020-11-10'),
-('Пинокио', '20202-11-10'),
-('Рис', '2020-11-10'),
-('БумБараш', '2020-11-10'),
-('Стан', '2020-11-10'),
-('Угли-угли', '2020-01-01'),
+('Диканька', '2020-09-10'),
+('Пинокио', '2020-09-10'),
+('Рис', '2020-09-10'),
+('БумБараш', '2020-09-10'),
+('Стан', '2020-09-10'),
+('Угли-угли', '2020-09-01'),
 ('Балкан Гриль', now()),
 ('Венсент', now()),
 ('The Great Kraken', now()),

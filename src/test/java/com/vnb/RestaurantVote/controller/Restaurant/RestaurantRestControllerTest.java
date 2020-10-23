@@ -14,8 +14,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
-import static com.vnb.RestaurantVote.RestoranMealTestData.*;
-import static com.vnb.RestaurantVote.TestUtil.readFromJsonMvcResult;
+import static com.vnb.RestaurantVote.controller.Restaurant.RestoranMealTestData.*;
+import static com.vnb.RestaurantVote.utils.TestUtil.readFromJsonMvcResult;
 import static com.vnb.RestaurantVote.utils.RestaurantUtil.*;
 import static com.vnb.RestaurantVote.utils.TimeUtil.limitHourForVote;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -86,8 +86,8 @@ class RestaurantRestControllerTest {
     @WithMockUser(roles = {"USER"})
     void filter() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/restaurants/filter")
-                .param("startDate", "2020-10-01")
-                .param("endDate", "2020-10-01"))
+                .param("startDate", "2020-09-01")
+                .param("endDate", "2020-09-01"))
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(contentJson(createWithVote(restaurantService.getById(RESTAURANT_FILTERED))));

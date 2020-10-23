@@ -6,8 +6,6 @@ import com.vnb.RestaurantVote.service.UserService;
 import com.vnb.RestaurantVote.utils.json.JsonUtil;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,9 +18,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static com.vnb.RestaurantVote.TestUtil.readFromJson;
-import static com.vnb.RestaurantVote.TestUtil.userHttpBasic;
-import static com.vnb.RestaurantVote.UserTestData.*;
+import static com.vnb.RestaurantVote.utils.TestUtil.readFromJson;
+import static com.vnb.RestaurantVote.utils.TestUtil.userHttpBasic;
+import static com.vnb.RestaurantVote.controller.user.UserTestData.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;

@@ -1,4 +1,4 @@
-package com.vnb.RestaurantVote;
+package com.vnb.RestaurantVote.controller.user;
 
 import com.vnb.RestaurantVote.model.Role;
 import com.vnb.RestaurantVote.model.User;
@@ -8,8 +8,8 @@ import org.springframework.test.web.servlet.ResultMatcher;
 import java.util.List;
 import java.util.Set;
 
-import static com.vnb.RestaurantVote.TestUtil.readFromJsonMvcResult;
-import static com.vnb.RestaurantVote.TestUtil.readListFromJsonMvcResult;
+import static com.vnb.RestaurantVote.utils.TestUtil.readFromJsonMvcResult;
+import static com.vnb.RestaurantVote.utils.TestUtil.readListFromJsonMvcResult;
 import static com.vnb.RestaurantVote.model.User.USER_SEQ;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -20,7 +20,7 @@ public class UserTestData {
     public static final int USER2_ID = USER_SEQ + 2;
 
     public static final User ADMIN = new User(ADMIN_ID, "admin@gmail.com", "admin", Role.ROLE_USER, Role.ROLE_ADMIN);
-    public static final User USER2 = new User(USER2_ID, "user@yandex.ru", "123", Role.ROLE_USER);
+    public static final User USER2 = new User(USER2_ID, "user@yandex.ru", "ret", Role.ROLE_USER);
     public static final Set<User> VOTES = Set.of(ADMIN);
 
     public static final User USER = new User(USER_ID, "newEmail@mail.ru", "pass", Role.ROLE_USER);

@@ -1,4 +1,4 @@
-package com.vnb.RestaurantVote;
+package com.vnb.RestaurantVote.utils;
 
 import com.vnb.RestaurantVote.model.User;
 import com.vnb.RestaurantVote.utils.json.JsonUtil;

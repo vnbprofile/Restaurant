@@ -49,7 +49,7 @@ public class Meal {
         this.name = name;
     }
 
-    public double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 

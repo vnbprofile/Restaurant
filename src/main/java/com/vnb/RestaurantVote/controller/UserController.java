@@ -38,6 +38,7 @@ public class UserController {
     @PostMapping("/register")
     @ResponseStatus(value = HttpStatus.CREATED)
     public ResponseEntity<User> register(@RequestBody User user) {
+        System.out.println(user);
         User created = userService.save(user);
         log.info("LOG новый юзер: {} создан", user);
 

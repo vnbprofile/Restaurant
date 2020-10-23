@@ -23,12 +23,12 @@ import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 
-import static com.vnb.RestaurantVote.RestoranMealTestData.assertMatch;
-import static com.vnb.RestaurantVote.RestoranMealTestData.*;
-import static com.vnb.RestaurantVote.TestUtil.readFromJson;
-import static com.vnb.RestaurantVote.UserTestData.assertMatch;
-import static com.vnb.RestaurantVote.UserTestData.contentJson;
-import static com.vnb.RestaurantVote.UserTestData.*;
+import static com.vnb.RestaurantVote.controller.Restaurant.RestoranMealTestData.assertMatch;
+import static com.vnb.RestaurantVote.controller.Restaurant.RestoranMealTestData.*;
+import static com.vnb.RestaurantVote.utils.TestUtil.readFromJson;
+import static com.vnb.RestaurantVote.controller.user.UserTestData.assertMatch;
+import static com.vnb.RestaurantVote.controller.user.UserTestData.contentJson;
+import static com.vnb.RestaurantVote.controller.user.UserTestData.*;
 import static com.vnb.RestaurantVote.utils.json.JsonUtil.writeValue;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;

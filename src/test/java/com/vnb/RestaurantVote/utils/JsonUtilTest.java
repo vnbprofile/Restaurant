@@ -7,11 +7,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static com.vnb.RestaurantVote.RestoranMealTestData.*;
+import static com.vnb.RestaurantVote.controller.Restaurant.RestoranMealTestData.*;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest

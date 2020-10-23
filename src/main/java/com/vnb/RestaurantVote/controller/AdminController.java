@@ -45,7 +45,7 @@ public class AdminController {
             restaurant.setCreatedDate(LocalDate.now());
         }
         Restaurant created = restaurantService.save(restaurant);
-        log.info("LOG новое кафе c id: {} создано", restaurant.getId());
+        log.info("LOG новое ресторан c id: {} создано", restaurant.getId());
 
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/admin/restaurants/{id}")
@@ -58,14 +58,14 @@ public class AdminController {
     public void updateRestaurant(@PathVariable("id") Restaurant restaurantFromDb, @Valid @RequestBody Restaurant restaurant) {
         //restaurantFromDb - кафе из бд, которе редактируем, берём его значения и заменяем новыми, всеми кроме id и даты
         BeanUtils.copyProperties(restaurant, restaurantFromDb, "id", "date", "votes");
-        log.info("LOG кафе с id: {} обновлено", restaurantFromDb.getId());
+        log.info("LOG ресторан с id: {} обновлено", restaurantFromDb.getId());
         restaurantService.update(restaurantFromDb);
     }
 
     @DeleteMapping("/restaurants/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void deleteRestaurant(@PathVariable("id") int id) {
-        log.info("LOG кафе с id: {} удалено", id);
+        log.info("LOG ресторан с id: {} удалено", id);
         restaurantService.delete(id);
     }
 
@@ -85,6 +85,7 @@ public class AdminController {
 
     @PostMapping("/users")
     public ResponseEntity<User> createUser(@Valid @RequestBody User user, BindingResult result) {
+        System.out.println(user);
         if (result.hasErrors()) {
             return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
         }
@@ -98,6 +99,7 @@ public class AdminController {
     @DeleteMapping("/users/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteUser(@PathVariable int id) {
+
         userService.delete(id);
     }
 

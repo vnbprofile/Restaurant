@@ -1,7 +1,7 @@
 package com.vnb.RestaurantVote.service;
 
 import com.vnb.RestaurantVote.model.Restaurant;
-import com.vnb.RestaurantVote.model.RestoranMeal;
+import com.vnb.RestaurantVote.model.RestaurantMeal;
 import com.vnb.RestaurantVote.model.User;
 import com.vnb.RestaurantVote.repository.RestaurantRepository;
 import com.vnb.RestaurantVote.utils.exception.CanVoteException;
@@ -35,8 +35,8 @@ public class RestaurantService {
         return find(id);
     }
 
-    public List<RestoranMeal> getRestoranMeal(int id) {
-        return find(id).getRestoranMeals();
+    public List<RestaurantMeal> getRestoranMeal(int id) {
+        return find(id).getRestaurantMeals();
     }
 
 

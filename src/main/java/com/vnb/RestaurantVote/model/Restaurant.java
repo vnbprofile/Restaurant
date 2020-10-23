@@ -43,23 +43,23 @@ public class Restaurant {
 
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "meals", joinColumns = @JoinColumn(name = "restaurant_id"))
-    private List<RestoranMeal> restoranMeals = new ArrayList<>();
+    private List<RestaurantMeal> restaurantMeals = new ArrayList<>();
 
     public Restaurant() {
     }
 
-    public Restaurant(Integer id, String name, LocalDate createdDate, List<RestoranMeal> restoranMeals) {
+    public Restaurant(Integer id, String name, LocalDate createdDate, List<RestaurantMeal> restaurantMeals) {
         this.id = id;
         this.name = name;
         this.createdDate = createdDate;
-        this.restoranMeals = restoranMeals;
+        this.restaurantMeals = restaurantMeals;
     }
 
-    public Restaurant(Integer id, String name, LocalDate createdDate,List<RestoranMeal> restoranMeals, Set<User> votes) {
+    public Restaurant(Integer id, String name, LocalDate createdDate, List<RestaurantMeal> restaurantMeals, Set<User> votes) {
         this.id = id;
         this.name = name;
         this.createdDate = createdDate;
-        this.restoranMeals = restoranMeals;
+        this.restaurantMeals = restaurantMeals;
         this.votes = votes;
     }
 
@@ -95,12 +95,12 @@ public class Restaurant {
 //        this.votes = votes;
 //    }
 
-    public List<RestoranMeal>  getRestoranMeals() {
-        return restoranMeals;
+    public List<RestaurantMeal> getRestaurantMeals() {
+        return restaurantMeals;
     }
 
-    public void setRestoranMeal(List<RestoranMeal> restoranMeals) {
-        this.restoranMeals = restoranMeals;
+    public void setRestoranMeal(List<RestaurantMeal> restaurantMeals) {
+        this.restaurantMeals = restaurantMeals;
     }
 
     @Override
@@ -109,7 +109,7 @@ public class Restaurant {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", createdDate=" + createdDate +
-                ", meals=" + restoranMeals +
+                ", meals=" + restaurantMeals +
                 '}';
     }
 }
