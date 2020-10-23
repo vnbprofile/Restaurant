@@ -45,7 +45,7 @@ public class AdminController {
             restaurant.setCreatedDate(LocalDate.now());
         }
         Restaurant created = restaurantService.save(restaurant);
-        log.info("LOG новое ресторан c id: {} создано", restaurant.getId());
+        log.info("LOG новый ресторан c id: {} создан", restaurant.getId());
 
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/admin/restaurants/{id}")
@@ -58,7 +58,7 @@ public class AdminController {
     public void updateRestaurant(@PathVariable("id") Restaurant restaurantFromDb, @Valid @RequestBody Restaurant restaurant) {
         //restaurantFromDb - кафе из бд, которе редактируем, берём его значения и заменяем новыми, всеми кроме id и даты
         BeanUtils.copyProperties(restaurant, restaurantFromDb, "id", "date", "votes");
-        log.info("LOG ресторан с id: {} обновлено", restaurantFromDb.getId());
+        log.info("LOG ресторан с id: {} обновлен", restaurantFromDb.getId());
         restaurantService.update(restaurantFromDb);
     }
 

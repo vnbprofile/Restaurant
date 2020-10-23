@@ -21,8 +21,8 @@ public class Restaurant {
     public static final int RESTAURANT_START_SEQ = 100000;
 
     @Id
-   // @SequenceGenerator(name = "RESTAURANT_START_SEQ", sequenceName = "RESTAURANT_START_SEQ", allocationSize = 1, initialValue = RESTAURANT_START_SEQ)
-    //@GeneratedValue(generator = "RESTAURANT_START_SEQ", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "RESTAURANT_START_SEQ", sequenceName = "RESTAURANT_START_SEQ", allocationSize = 1, initialValue = RESTAURANT_START_SEQ)
+    @GeneratedValue(generator = "RESTAURANT_START_SEQ", strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     @NotBlank
