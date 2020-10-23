@@ -62,7 +62,7 @@ class RestaurantRestControllerTest {
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(contentJson(restaurantService.getRestoranMeal(RESTAURANT_ID)));
+                .andExpect(contentJson(restaurantService.getRestoranMeals(RESTAURANT_ID)));
     }
 
     @Test

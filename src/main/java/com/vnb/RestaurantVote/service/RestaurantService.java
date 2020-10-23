@@ -35,7 +35,7 @@ public class RestaurantService {
         return find(id);
     }
 
-    public List<RestaurantMeal> getRestoranMeal(int id) {
+    public List<RestaurantMeal> getRestoranMeals(int id) {
         return find(id).getRestaurantMeals();
     }
 

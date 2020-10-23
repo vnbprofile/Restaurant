@@ -91,15 +91,15 @@ public class Restaurant {
         return votes;
     }
 
-//    public void setVotes(Set<User> votes) {
-//        this.votes = votes;
-//    }
+    public void setVotes(Set<User> votes) {
+        this.votes = votes;
+    }
 
     public List<RestaurantMeal> getRestaurantMeals() {
         return restaurantMeals;
     }
 
-    public void setRestoranMeal(List<RestaurantMeal> restaurantMeals) {
+    public void setRestoranMeals(List<RestaurantMeal> restaurantMeals) {
         this.restaurantMeals = restaurantMeals;
     }
 
@@ -109,7 +109,7 @@ public class Restaurant {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", createdDate=" + createdDate +
-                ", meals=" + restaurantMeals +
+                ", restaurantMeals=" + restaurantMeals +
                 '}';
     }
 }

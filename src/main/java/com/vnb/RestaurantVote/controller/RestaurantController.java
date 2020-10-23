@@ -45,10 +45,10 @@ public class RestaurantController {
         return createWithVote(restaurantService.getById(id));
     }
 
-    @GetMapping("meals/{id}")
-    public List<RestaurantMeal> getRestoranMeal(@PathVariable("id") int id) {
+    @GetMapping("restaurantMeals/{id}")
+    public List<RestaurantMeal> getRestoranMeals(@PathVariable("id") int id) {
         log.info("LOG меню ресторанов с id: {} найдено", id);
-        return restaurantService.getRestoranMeal(id);
+        return restaurantService.getRestoranMeals(id);
     }
 
     @GetMapping("vote/{id}")
