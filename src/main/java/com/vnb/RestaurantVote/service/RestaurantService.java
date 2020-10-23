@@ -4,7 +4,7 @@ import com.vnb.RestaurantVote.model.Restaurant;
 import com.vnb.RestaurantVote.model.RestaurantMeal;
 import com.vnb.RestaurantVote.model.User;
 import com.vnb.RestaurantVote.repository.RestaurantRepository;
-import com.vnb.RestaurantVote.utils.exception.CanVoteException;
+import com.vnb.RestaurantVote.utils.exception.VoteException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.Nullable;
@@ -57,7 +57,7 @@ public class RestaurantService {
         Restaurant restaurant = find(restaurantId);
         Set<User> votes = restaurant.getVotes();
         if (!canVote(restaurant)) {
-            throw new CanVoteException();
+            throw new VoteException();
         }
         if (votes.contains(user)) {
             votes.remove(user);

@@ -52,11 +52,11 @@ class AdminRestControllerTest {
     private static final String REST_USER_URL = "/admin/users/";
     private static final String REST_CAFE_URL = "/admin/restaurants/";
 
-    //For restaurant
+
 
     @Test
     @WithMockUser(roles = {"ADMIN"})
-    void createCafe() throws Exception {
+    void createRestaurant() throws Exception {
         Restaurant created = getCreated();
 
         ResultActions actions = mockMvc.perform(MockMvcRequestBuilders.post(REST_CAFE_URL)
@@ -114,7 +114,7 @@ class AdminRestControllerTest {
                 .andDo(print());
     }
 
-    //For users
+
 
     @Test
     @WithMockUser(roles = {"ADMIN"})

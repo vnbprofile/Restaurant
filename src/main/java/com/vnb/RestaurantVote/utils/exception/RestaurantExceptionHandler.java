@@ -9,15 +9,15 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class RestaurantExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(CanVoteException.class)
-    protected ResponseEntity<CafeException> handleDontCanVoteException() {
-        return new ResponseEntity<>(new CafeException("Voting time is over"), HttpStatus.NOT_ACCEPTABLE);
+    @ExceptionHandler(VoteException.class)
+    protected ResponseEntity<VotieException> handleDontCanVoteException() {
+        return new ResponseEntity<>(new VotieException("Voting for 11"), HttpStatus.NOT_ACCEPTABLE);
     }
 
-    private static class CafeException {
+    private static class VotieException {
         private String message;
 
-        public CafeException(String message) {
+        public VotieException(String message) {
             this.message = message;
         }
 
