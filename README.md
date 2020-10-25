@@ -47,7 +47,7 @@ Get all users :
 
 Update user:
 
-  curl -X PUT localhost:8080/users/profile -H "Content-type:application/json" -d '{\"email\":\"newmail@gmail.com\",\"password\":\"trd4\"}' -u user@mail.ru:qwe
+  curl -X PUT localhost:8080/users/profile -H "Content-type:application/json" -d '{\"email\":\"test@gmail.com\",\"password\":\"trd4\"}' -u user@mail.ru:qwe
 
 Add user:
 
