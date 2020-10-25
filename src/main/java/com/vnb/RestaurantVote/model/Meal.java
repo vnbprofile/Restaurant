@@ -13,6 +13,9 @@ import java.util.Objects;
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Meal {
 
+    @Id
+    private Integer id;
+
     @NotBlank
     @Column(name = "name", nullable = false)
     private String name;
@@ -20,14 +23,17 @@ public class Meal {
     @NotBlank
     @Column(name = "price", nullable = false)
     private Integer price;
-    @Id
-    private Integer id;
 
     @Column(name = "date", updatable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate createdDate;
 
+    @NotBlank
+    @Column(name = "restaurant_id", nullable = false)
+    private Integer restaurant_id;
+
     public Meal() {
+
     }
 
     public Meal(String name, Integer price) {
@@ -39,6 +45,24 @@ public class Meal {
         this.id = id;
         this.name = name;
         this.price = price;
+    }
+
+    public Meal(Integer id, String name, Integer price, Integer restaurant_id) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    public void setRestaurant_id(Integer restaurant_id) {
+        this.restaurant_id = restaurant_id;
+    }
+
+    public Integer getRestaurant_id() {
+        return restaurant_id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -72,10 +96,11 @@ public class Meal {
     @Override
     public String toString() {
         return "Meal{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", price=" + price +
-                ", id=" + id +
                 ", createdDate=" + createdDate +
+                ", restaurant_id=" + restaurant_id +
                 '}';
     }
 
