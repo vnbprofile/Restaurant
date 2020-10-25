@@ -57,6 +57,11 @@ Update name restaraunt:
 Delete Restoraunt: 
 
   curl -X DELETE localhost:8080/admin/restaurants/100007 -u admin@gmail.com:admin
+  
+Get all meal:
+
+  curl localhost:8080/meal -u admin@gmail.com:admin
+  
  
  
  
