@@ -48,7 +48,7 @@ Create restaraunt whith meals:
 
 Vote (for 11:00): 
 
-  curl localhost:8080/restaurants/vote/100001 -u user@mail.com:qwe
+  curl localhost:8080/restaurants/vote/100001 -u user@mail.ru:qwe
 
 Update name restaraunt:
 
