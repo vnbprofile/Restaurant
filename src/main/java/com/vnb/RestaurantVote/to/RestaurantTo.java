@@ -58,7 +58,7 @@ public class RestaurantTo {
                 "}";
     }
 
-    //без equals не проходит валидацию тест CafeRestController.getAllCafes()
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
