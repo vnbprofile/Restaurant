@@ -35,11 +35,11 @@ Vote (for 11:00):
 
 Update name restaraunt:
 
-  curl -X PUT localhost:8080/admin/restaurants/1000010 -H "Content-type:application/json" -d '{"name":"Картошка"}' -u admin@gmail.com:admin
+  curl -X PUT localhost:8080/admin/restaurants/100005 -H "Content-type:application/json" -d '{"name":"Картошка"}' -u admin@gmail.com:admin
 
 Delete Restoraunt: 
 
-  curl -X DELETE localhost:8080/admin/restaurants/1000010 -u admin@gmail.com:admin
+  curl -X DELETE localhost:8080/admin/restaurants/100007 -u admin@gmail.com:admin
  
 Get all users :
  
