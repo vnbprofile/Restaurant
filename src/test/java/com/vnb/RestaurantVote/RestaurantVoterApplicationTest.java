@@ -40,7 +40,7 @@ class RestaurantVoterApplicationTest {
 
     @Test
     void badCredentials() throws Exception {
-        mockMvc.perform(post("/login").param("email", "Admin@gmail.com"))
+        mockMvc.perform(post("/login").param("email", "dmin@gmail.com"))
                 .andDo(print())
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/login?error"));

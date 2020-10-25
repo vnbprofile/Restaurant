@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @Transactional
-class RestaurantRestControllerTest {
+class RestaurantControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -58,7 +58,7 @@ class RestaurantRestControllerTest {
     @Test
     @WithMockUser(roles = {"USER"})
     void getRestoranMeal() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/restaurants/meals/" + RESTAURANT_ID))
+        mockMvc.perform(MockMvcRequestBuilders.get("/restaurants/restaurantMeals/" + RESTAURANT_ID))
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
@@ -110,7 +110,7 @@ class RestaurantRestControllerTest {
     @Test
     @WithMockUser(roles = {"USER"})
     void getNotFound() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/restaurants/999"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/restaurants/99"))
                 .andExpect(status().isNotFound());
     }
 }
