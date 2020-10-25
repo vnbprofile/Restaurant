@@ -97,7 +97,7 @@ public class Meal {
     public String toString() {
         return "Meal{" +
                 "id=" + id +
-                "name='" + name + '\'' +
+                ", name='" + name + '\'' +
                 ", price=" + price +
                 ", createdDate=" + createdDate +
                 ", restaurant_id=" + restaurant_id +
