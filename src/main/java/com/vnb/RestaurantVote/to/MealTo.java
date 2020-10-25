@@ -13,23 +13,20 @@ public class MealTo {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate createdDate;
-    private Integer votes;
 
     public MealTo() {
     }
 
-    public MealTo(Meal meal, Integer votes) {
+    public MealTo(Meal meal) {
         this.id = meal.getId();
         this.name = meal.getName();
         this.createdDate = meal.getCreatedDate();
-        this.votes = votes;
     }
 
-    public MealTo(Integer id, String name, LocalDate createdDate, Integer votes) {
+    public MealTo(Integer id, String name, LocalDate createdDate) {
         this.id = id;
         this.name = name;
         this.createdDate = createdDate;
-        this.votes = votes;
     }
 
     public Integer getId() {
@@ -44,17 +41,12 @@ public class MealTo {
         return createdDate;
     }
 
-    public Integer getVotes() {
-        return votes;
-    }
-
     @Override
     public String toString() {
         return "MealTo{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", createdDate=" + createdDate +
-                ", votes=" + votes +
                 "}";
     }
 
@@ -66,12 +58,11 @@ public class MealTo {
         MealTo mealTo = (MealTo) o;
         return Objects.equals(id, mealTo.id) &&
                 Objects.equals(name, mealTo.name) &&
-                Objects.equals(createdDate, mealTo.createdDate) &&
-                Objects.equals(votes, mealTo.votes);
+                Objects.equals(createdDate, mealTo.createdDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, createdDate,  votes);
+        return Objects.hash(id, name, createdDate);
     }
 }
