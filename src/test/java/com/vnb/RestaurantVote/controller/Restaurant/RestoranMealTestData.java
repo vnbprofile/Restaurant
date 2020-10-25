@@ -1,7 +1,6 @@
 package com.vnb.RestaurantVote.controller.Restaurant;
 
 
-import com.vnb.RestaurantVote.model.Meal;
 import com.vnb.RestaurantVote.model.Restaurant;
 import com.vnb.RestaurantVote.model.RestaurantMeal;
 import com.vnb.RestaurantVote.to.RestaurantTo;
@@ -42,7 +41,7 @@ public class RestoranMealTestData {
         assertThat(actual).isEqualToIgnoringGivenFields(expected);
     }
 
-    public static void assertMatch(Meal actual, Meal expected) {
+    public static void assertMatch(RestaurantMeal actual, RestaurantMeal expected) {
         assertThat(actual).isEqualTo(expected);
     }
 
@@ -63,6 +62,6 @@ public class RestoranMealTestData {
     }
 
     public static ResultMatcher contentJson(List<RestaurantMeal> expected) {
-        return result -> assertThat(readListFromJsonMvcResult(result, Meal.class)).isEqualTo(expected);
+        return result -> assertThat(readListFromJsonMvcResult(result, RestaurantMeal.class)).isEqualTo(expected);
     }
 }
