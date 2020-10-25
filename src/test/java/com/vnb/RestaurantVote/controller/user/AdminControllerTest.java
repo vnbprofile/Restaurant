@@ -71,7 +71,7 @@ class AdminControllerTest {
 
     @Test
     @WithMockUser(roles = {"ADMIN"})
-    void updateCafe() throws Exception {
+    void updateRestaurant() throws Exception {
         Restaurant updated = getUpdated();
 
         mockMvc.perform(MockMvcRequestBuilders.put(REST_RESTAURANT_URL + RESTAURANT_ID)
@@ -84,7 +84,7 @@ class AdminControllerTest {
 
     @Test
     @WithMockUser(roles = {"ADMIN"})
-    void deleteCafe() throws Exception {
+    void deleteRestaurant() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.delete(REST_RESTAURANT_URL + RESTAURANT_ID)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent());
