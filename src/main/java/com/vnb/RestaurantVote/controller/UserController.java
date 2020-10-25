@@ -49,7 +49,7 @@ public class UserController {
     }
 
     @PutMapping
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public void update(@AuthenticationPrincipal AuthorizedUser currentUser, @Valid @RequestBody User user) {
         user.setId(currentUser.getId());
         user.setRoles(currentUser.getRoles());
