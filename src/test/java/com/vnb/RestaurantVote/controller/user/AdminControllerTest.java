@@ -50,7 +50,7 @@ class AdminControllerTest {
     private RestaurantService restaurantService;
 
     private static final String REST_USER_URL = "/admin/users/";
-    private static final String REST_CAFE_URL = "/admin/restaurants/";
+    private static final String REST_RESTAURANT_URL = "/admin/restaurants/";
 
 
 
@@ -59,7 +59,7 @@ class AdminControllerTest {
     void createRestaurant() throws Exception {
         Restaurant created = getCreated();
 
-        ResultActions actions = mockMvc.perform(MockMvcRequestBuilders.post(REST_CAFE_URL)
+        ResultActions actions = mockMvc.perform(MockMvcRequestBuilders.post(REST_RESTAURANT_URL)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(writeValue(created)));
 
@@ -74,7 +74,7 @@ class AdminControllerTest {
     void updateCafe() throws Exception {
         Restaurant updated = getUpdated();
 
-        mockMvc.perform(MockMvcRequestBuilders.put(REST_CAFE_URL + RESTAURANT_ID)
+        mockMvc.perform(MockMvcRequestBuilders.put(REST_RESTAURANT_URL + RESTAURANT_ID)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(writeValue(updated)))
                 .andExpect(status().isNoContent());
@@ -85,7 +85,7 @@ class AdminControllerTest {
     @Test
     @WithMockUser(roles = {"ADMIN"})
     void deleteCafe() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.delete(REST_CAFE_URL + RESTAURANT_ID)
+        mockMvc.perform(MockMvcRequestBuilders.delete(REST_RESTAURANT_URL + RESTAURANT_ID)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent());
     }
@@ -94,7 +94,7 @@ class AdminControllerTest {
     @WithMockUser(roles = {"ADMIN"})
     void createInvalid() throws Exception {
         Restaurant invalid = new Restaurant(null, null, LocalDate.now(), null);
-        mockMvc.perform(MockMvcRequestBuilders.post(REST_CAFE_URL)
+        mockMvc.perform(MockMvcRequestBuilders.post(REST_RESTAURANT_URL)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JsonUtil.writeValue(invalid)))
                 .andDo(print())
@@ -106,11 +106,11 @@ class AdminControllerTest {
     @WithMockUser(roles = {"ADMIN"})
     void updateInvalid() throws Exception {
         Restaurant invalid = new Restaurant(RESTAURANT_ID, null, null, null);
-        mockMvc.perform(MockMvcRequestBuilders.put( REST_CAFE_URL + RESTAURANT_ID)
+        mockMvc.perform(MockMvcRequestBuilders.put( REST_RESTAURANT_URL + RESTAURANT_ID)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JsonUtil.writeValue(invalid)))
                 .andDo(print())
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isNoContent())
                 .andDo(print());
     }
 
