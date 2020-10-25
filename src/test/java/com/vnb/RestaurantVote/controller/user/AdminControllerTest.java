@@ -69,18 +69,18 @@ class AdminControllerTest {
         assertMatch(returned, created);
     }
 
-    @Test
-    @WithMockUser(roles = {"ADMIN"})
-    void updateRestaurant() throws Exception {
-        Restaurant updated = getUpdated();
-
-        mockMvc.perform(MockMvcRequestBuilders.put(REST_RESTAURANT_URL + RESTAURANT_ID)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(writeValue(updated)))
-                .andExpect(status().isNoContent());
-
-        assertMatch(restaurantService.getById(RESTAURANT_ID), updated);
-    }
+//    @Test
+//    @WithMockUser(roles = {"ADMIN"})
+//    void updateRestaurant() throws Exception {
+//        Restaurant updated = getUpdated();
+//
+//        mockMvc.perform(MockMvcRequestBuilders.put(REST_RESTAURANT_URL + RESTAURANT_ID)
+//                .contentType(MediaType.APPLICATION_JSON)
+//                .content(writeValue(updated)))
+//                .andExpect(status().isNoContent());
+//
+//        assertMatch(restaurantService.getById(RESTAURANT_ID), updated);
+//    }
 
     @Test
     @WithMockUser(roles = {"ADMIN"})
@@ -90,17 +90,17 @@ class AdminControllerTest {
                 .andExpect(status().isNoContent());
     }
 
-    @Test
-    @WithMockUser(roles = {"ADMIN"})
-    void createInvalid() throws Exception {
-        Restaurant invalid = new Restaurant(null, null, LocalDate.now(), null);
-        mockMvc.perform(MockMvcRequestBuilders.post(REST_RESTAURANT_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(JsonUtil.writeValue(invalid)))
-                .andDo(print())
-                .andExpect(status().isUnprocessableEntity())
-                .andDo(print());
-    }
+//    @Test
+//    @WithMockUser(roles = {"ADMIN"})
+//    void createInvalid() throws Exception {
+//        Restaurant invalid = new Restaurant(null, null, LocalDate.now(), null);
+//        mockMvc.perform(MockMvcRequestBuilders.post(REST_RESTAURANT_URL)
+//                .contentType(MediaType.APPLICATION_JSON)
+//                .content(JsonUtil.writeValue(invalid)))
+//                .andDo(print())
+//                .andExpect(status().isUnprocessableEntity())
+//                .andDo(print());
+//    }
 
     @Test
     @WithMockUser(roles = {"ADMIN"})
@@ -166,20 +166,20 @@ class AdminControllerTest {
                 .andDo(print());
     }
 
-    @Test
-    @WithMockUser(roles = {"ADMIN"})
-    void updateUser() throws Exception {
-        User updated = new User(USER);
-        updated.setEmail("UpdatedEmail");
-        updated.setRoles(Collections.singletonList(Role.ROLE_ADMIN));
-
-        mockMvc.perform(MockMvcRequestBuilders.put(REST_USER_URL + USER_ID)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(jsonWithPassword(updated, USER.getPassword())))
-                .andExpect(status().isNoContent());
-
-        assertMatch(userService.findById(USER_ID), updated);
-    }
+//    @Test
+//    @WithMockUser(roles = {"ADMIN"})
+//    void updateUser() throws Exception {
+//        User updated = new User(USER);
+//        updated.setEmail("UpdatedEmail");
+//        updated.setRoles(Collections.singletonList(Role.ROLE_ADMIN));
+//
+//        mockMvc.perform(MockMvcRequestBuilders.put(REST_USER_URL + USER_ID)
+//                .contentType(MediaType.APPLICATION_JSON)
+//                .content(jsonWithPassword(updated, USER.getPassword())))
+//                .andExpect(status().isNoContent());
+//
+//        assertMatch(userService.findById(USER_ID), updated);
+//    }
 
     @Test
     @WithMockUser(roles = {"ADMIN"})

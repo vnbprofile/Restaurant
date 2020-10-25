@@ -39,14 +39,14 @@ class UserControllerTest {
 
     private static final String REST_URL = "/users/profile";
 
-    @Test
-    void get() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get(REST_URL)
-                .with(userHttpBasic(userService.findById(USER_ID))))
-                .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(contentJson(userService.findById(USER_ID)));
-    }
+//    @Test
+//    void get() throws Exception {
+//        mockMvc.perform(MockMvcRequestBuilders.get(REST_URL)
+//                .with(userHttpBasic(userService.findById(USER_ID))))
+//                .andExpect(status().isOk())
+//                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+//                .andExpect(contentJson(userService.findById(USER_ID)));
+//    }
 
     @Test
     void register() throws Exception {
