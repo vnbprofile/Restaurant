@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 public class TimeUtil {
 
-    public static int limitHourForVote = 21;
+    public static int limitHourForVote = 11;
 
     private TimeUtil() {
     }
