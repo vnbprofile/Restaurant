@@ -44,8 +44,8 @@ class UserControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get(REST_URL)
                 .with(userHttpBasic(userService.findById(USER_ID))))
                 .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
-               // .andExpect(contentJson(userService.findById(USER_ID)));
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(contentJson(userService.findById(USER_ID)));
     }
 
     @Test

@@ -38,7 +38,7 @@ public class RestaurantMeal {
 
     @Override
     public String toString() {
-        return "Meal{" +
+        return "RestaurantMeal{" +
                 "name='" + name + '\'' +
                 ", price=" + price +
                 '}';
