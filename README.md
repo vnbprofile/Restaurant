@@ -17,6 +17,23 @@ Each restaurant provides new menu each day.
 
 -----------------------------------------------------------------------------------
 
+Get all users :
+ 
+  curl localhost:8080/admin/users -u admin@gmail.com:admin
+
+Update user:
+
+  curl -X PUT localhost:8080/users/profile -H "Content-type:application/json" -d '{\"email\":\"test@gmail.com\",\"password\":\"trd4\"}' -u user@mail.ru:qwe
+
+Add user:
+
+ curl -s -X POST localhost:8080/users/profile/register -H "Content-type:application/json" -d '{\"email\":\"poncha@mail.ru\",\"password\":\"sdfjhj\"}'
+
+Delete user:
+
+ curl -X DELETE localhost:8080/admin/users/100002 -u admin@gmail.com:admin
+
+
 Get restaraunt :
 
   curl localhost:8080/restaurants -u admin@gmail.com:admin
@@ -41,20 +58,5 @@ Delete Restoraunt:
 
   curl -X DELETE localhost:8080/admin/restaurants/100007 -u admin@gmail.com:admin
  
-Get all users :
- 
-  curl localhost:8080/admin/users -u admin@gmail.com:admin
-
-Update user:
-
-  curl -X PUT localhost:8080/users/profile -H "Content-type:application/json" -d '{\"email\":\"test@gmail.com\",\"password\":\"trd4\"}' -u user@mail.ru:qwe
-
-Add user:
-
- curl -s -X POST localhost:8080/users/profile/register -H "Content-type:application/json" -d '{\"email\":\"poncha@mail.ru\",\"password\":\"sdfjhj\"}'
-
-Delete user:
-
- curl -X DELETE localhost:8080/admin/users/100002 -u admin@gmail.com:admin
  
  
