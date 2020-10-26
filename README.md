@@ -38,7 +38,7 @@ Get restaraunt :
 
   curl localhost:8080/restaurants -u admin@gmail.com:admin
 
-Get restaurantMeals in restaraunt : 
+Get Meals in restaraunt : 
 
   curl localhost:8080/restaurants/restaurantMeals/100000 -u admin@gmail.com:admin
 
@@ -46,7 +46,7 @@ Create restaraunt whith meals:
 
   curl -X POST localhost:8080/admin/restaurants -H "Content-type:application/json" -d '{\"name\":\"ABC\",\"restaurantMeals\":[{\"name\":\"Buter\",\"price\":\"89\"},{\"name\":\"Colla\",\"price\":\"39\"}]}' -u admin@gmail.com:admin
 
-Vote (for 11:00): 
+Vote (befor 11:00): 
 
   curl localhost:8080/restaurants/vote/100007 -u user@mail.ru:qwe
 
