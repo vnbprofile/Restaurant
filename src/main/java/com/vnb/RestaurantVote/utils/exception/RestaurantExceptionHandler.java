@@ -11,7 +11,7 @@ public class RestaurantExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(VoteException.class)
     protected ResponseEntity<VotieException> handleDontCanVoteException() {
-        return new ResponseEntity<>(new VotieException("Voting for 11"), HttpStatus.NOT_ACCEPTABLE);
+        return new ResponseEntity<>(new VotieException("Voting ends 11"), HttpStatus.NOT_ACCEPTABLE);
     }
 
     private static class VotieException {
