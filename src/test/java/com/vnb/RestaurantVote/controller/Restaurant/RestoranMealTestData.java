@@ -20,21 +20,21 @@ public class RestoranMealTestData {
     public static final int RESTAURANT_FOR_VOTE = RESTAURANT_START_SEQ + 7;
     public static final int RESTAURANT_FILTERED = RESTAURANT_START_SEQ + 5;
 
-    public static final RestaurantMeal MEAL1 = new RestaurantMeal("Пирожок", 15);
-    public static final RestaurantMeal MEAL2 = new RestaurantMeal("Чебурек", 30);
+    public static final RestaurantMeal RestaurantMeal1 = new RestaurantMeal("Пирожок", 15);
+    public static final RestaurantMeal RestaurantMeal2 = new RestaurantMeal("Чебурек", 30);
 
-    public static final List<RestaurantMeal> MEALS = List.of(MEAL1, MEAL2);
+    public static final List<RestaurantMeal> RestaurantMeals = List.of(RestaurantMeal1, RestaurantMeal2);
 
     public static final Restaurant RESTAURANT_TO_TEST_1 = new Restaurant(1, "Restaurant 464", LocalDate.of(2019, 12, 12), List.of(new RestaurantMeal("Tost", 55)));
     public static final Restaurant RESTAURANT_TO_TEST_2 = new Restaurant(2, "Zakusochnaay", LocalDate.of(2019, 12, 12), List.of(new RestaurantMeal("Ceg", 90)));
     public static final List<Restaurant> RESTAURANTS_TO_TESTS = List.of(RESTAURANT_TO_TEST_1, RESTAURANT_TO_TEST_2);
 
     public static Restaurant getCreated() {
-        return new Restaurant(null, "Ресторан", LocalDate.of(2020, 10, 10), MEALS);
+        return new Restaurant(null, "Ресторан", LocalDate.of(2020, 10, 10), RestaurantMeals);
     }
 
     public static Restaurant getUpdated() {
-        return new Restaurant(RESTAURANT_ID, "Столовая - Ромашка", LocalDate.of(2020, 11, 11), MEALS, VOTES);
+        return new Restaurant(RESTAURANT_ID, "Ресторан1", LocalDate.of(2020, 11, 11), RestaurantMeals, VOTES);
     }
 
     public static void assertMatch(Restaurant actual, Restaurant expected) {
