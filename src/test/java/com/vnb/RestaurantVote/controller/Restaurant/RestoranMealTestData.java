@@ -34,7 +34,7 @@ public class RestoranMealTestData {
     }
 
     public static Restaurant getUpdated() {
-        return new Restaurant(RESTAURANT_ID, "Ресторан1", LocalDate.of(2020, 11, 11), RestaurantMeals, VOTES);
+        return new Restaurant(RESTAURANT_ID, "Ресторан1", LocalDate.of(2020, 10, 11), RestaurantMeals, VOTES);
     }
 
     public static void assertMatch(Restaurant actual, Restaurant expected) {
