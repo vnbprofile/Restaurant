@@ -73,7 +73,7 @@ class UserControllerTest {
                 .with(userHttpBasic(userService.findById(USER_ID)))
                 .content(JsonUtil.writeValue(updated)))
                 .andDo(print())
-                .andExpect(status().isBadRequest());;
+                .andExpect(status().isNoContent());;
 
         assertMatch(userService.findByEmail("newemail@ya.ru"), new User(userService.findById(USER_ID)));
     }
