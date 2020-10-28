@@ -37,7 +37,7 @@ public class AdminController {
     }
 
     @PostMapping("/restaurants")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+
     public ResponseEntity<Restaurant> createRestaurant(@Valid @RequestBody Restaurant restaurant, BindingResult result) {
         if (result.hasErrors()) {
             return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
@@ -57,7 +57,6 @@ public class AdminController {
     @PutMapping("/restaurants/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void updateRestaurant(@PathVariable("id") Restaurant restaurantFromDb, @Valid @RequestBody Restaurant restaurant) {
-        //restaurantFromDb - кафе из бд, которе редактируем, берём его значения и заменяем новыми, всеми кроме id и даты
         BeanUtils.copyProperties(restaurant, restaurantFromDb, "id", "date", "votes");
         log.info("LOG ресторан с id: {} обновлен", restaurantFromDb.getId());
         restaurantService.update(restaurantFromDb);

@@ -90,17 +90,17 @@ class AdminControllerTest {
                 .andExpect(status().isNoContent());
     }
 
-//    @Test
-//    @WithMockUser(roles = {"ADMIN"})
-//    void createInvalid() throws Exception {
-//        Restaurant invalid = new Restaurant(null, null, LocalDate.now(), null);
-//        mockMvc.perform(MockMvcRequestBuilders.post(REST_RESTAURANT_URL)
-//                .contentType(MediaType.APPLICATION_JSON)
-//                .content(JsonUtil.writeValue(invalid)))
-//                .andDo(print())
-//                .andExpect(status().isUnprocessableEntity())
-//                .andDo(print());
-//    }
+    @Test
+    @WithMockUser(roles = {"ADMIN"})
+    void createInvalid() throws Exception {
+        Restaurant invalid = new Restaurant(null, null, LocalDate.now(), null);
+        mockMvc.perform(MockMvcRequestBuilders.post(REST_RESTAURANT_URL)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(JsonUtil.writeValue(invalid)))
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity())
+                .andDo(print());
+    }
 
     @Test
     @WithMockUser(roles = {"ADMIN"})
@@ -110,7 +110,7 @@ class AdminControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JsonUtil.writeValue(invalid)))
                 .andDo(print())
-                .andExpect(status().isNoContent())
+                .andExpect(status().isBadRequest())
                 .andDo(print());
     }
 
