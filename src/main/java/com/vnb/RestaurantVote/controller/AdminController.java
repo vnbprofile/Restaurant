@@ -37,7 +37,6 @@ public class AdminController {
     }
 
     @PostMapping("/restaurants")
-
     public ResponseEntity<Restaurant> createRestaurant(@Valid @RequestBody Restaurant restaurant, BindingResult result) {
         if (result.hasErrors()) {
             return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
@@ -56,10 +55,10 @@ public class AdminController {
 
     @PutMapping("/restaurants/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void updateRestaurant(@PathVariable("id") Restaurant restaurantFromDb, @Valid @RequestBody Restaurant restaurant) {
-        BeanUtils.copyProperties(restaurant, restaurantFromDb, "id", "date", "votes");
-        log.info("LOG ресторан с id: {} обновлен", restaurantFromDb.getId());
-        restaurantService.update(restaurantFromDb);
+    public void updateRestaurant(@PathVariable("id")  int id, @Valid @RequestBody Restaurant restaurant) {
+        BeanUtils.copyProperties(restaurant, restaurantService.getById(id), "id", "date", "votes");
+        log.info("LOG ресторан с id: {} обновлен", restaurantService.getById(id));
+        restaurantService.update(restaurantService.getById(id));
     }
 
     @DeleteMapping("/restaurants/{id}")
