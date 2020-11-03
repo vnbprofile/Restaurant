@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.vnb</groupId>
-	<artifactId>RestaurantVote</artifactId>
+	<artifactId>restaurantvote</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>RestaurantVote</name>
+	<name>restaurant vote</name>
 	<description>version 1.0</description>
 
 	<properties>
